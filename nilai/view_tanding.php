@@ -348,10 +348,9 @@
     <tr>
       <td style="text-align: center;" colspan="11">
       	<h2 class="waktu"></h2>
-  		<br />    	
-      	<h1 class="btn btn-success" onclick="start_time()" style="margin-bottom:10px;"> START</h1>
-      	<h1 class="btn btn-warning btn-stop" onclick="resume_time()" style="margin-bottom:10px;"> PAUSE</h1>
-      	<h1 class="btn btn-danger" onclick="stop_time()" style="margin-bottom:10px;"> STOP</h1>
+      	<h1 class="btn btn-success btn-xs" onclick="start_time()" style="margin-bottom:10px;margin-top:0;"> START</h1>
+      	<h1 class="btn btn-warning btn-xs btn-stop" onclick="resume_time()" style="margin-bottom:10px;margin-top:0;"> PAUSE</h1>
+      	<h1 class="btn btn-danger btn-xs" onclick="stop_time()" style="margin-bottom:10px;margin-top:0;"> STOP</h1>
       </td>
     </tr>
     <tr>
