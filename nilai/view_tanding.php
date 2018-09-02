@@ -336,23 +336,26 @@
 <div class="table-responsive">
 <table class="table">
   <thead>
-    <tr class="text-center">
-      <td colspan="11">GELANGGANG : <?php echo $jadwal['gelanggang']; ?></td>
-    </tr>
-    <tr class="text-center">
-      <td colspan="11">PARTAI KE : <?php echo $jadwal['partai']; ?></td>
-    </tr>
-    <tr class="text-center">
-      <td colspan="11"><?php echo $jadwal['kelas']; ?></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;" colspan="11">
-      	<h2 class="waktu"></h2>
-      	<h1 class="btn btn-success btn-xs" onclick="start_time()" style="margin-bottom:10px;margin-top:0;"> START</h1>
-      	<h1 class="btn btn-warning btn-xs btn-stop" onclick="resume_time()" style="margin-bottom:10px;margin-top:0;"> PAUSE</h1>
-      	<h1 class="btn btn-danger btn-xs" onclick="stop_time()" style="margin-bottom:10px;margin-top:0;"> STOP</h1>
+  	<tr>
+      <td colspan="6" rowspan="3">
+      	<h1 class="waktu" style="font-size: 60px;">00:00</h1>
       </td>
     </tr>
+    <tr class="text-right">
+      <td colspan="5">GELANGGANG : <?php echo $jadwal['gelanggang']; ?></td>
+    </tr>
+    <tr class="text-right">
+      <td colspan="5">PARTAI KE : <?php echo $jadwal['partai']; ?></td>
+    </tr>
+    <tr>
+    	<td colspan="6">
+	      	<h1 class="btn btn-success btn-xs" onclick="init_start()" style="margin-bottom:10px;margin-top:0;"> START</h1>
+	      	<h1 class="btn btn-warning btn-xs btn-stop" onclick="resume_time()" style="margin-bottom:10px;margin-top:0;"> PAUSE</h1>
+	      	<h1 class="btn btn-danger btn-xs" onclick="stop_time()" style="margin-bottom:10px;margin-top:0;"> STOP</h1>
+	    </td>
+      	<td colspan="5" class="text-right"><?php echo $jadwal['kelas']; ?></td>
+    </tr>
+    
     <tr>
       <td colspan="2">NAMA</td>
       <td colspan="3"><p>: <?php echo $jadwal['nm_merah']; ?></p></td>
@@ -598,6 +601,7 @@
 
     var var_start_timer = true;
     var var_stop = false;
+    var interval= "";
 	var resume_time = function(){
 		if(var_stop)
     	{
@@ -605,26 +609,35 @@
     	}
         if(var_start_timer)
         {
-            $('.btn-stop').removeClass('btn-danger').addClass('btn-success').html(' RESUME');
+            $('.btn-stop').html(' RESUME');
             var_start_timer = false;
         }
         else
         {
             var_start_timer = true;
-            $('.btn-stop').removeClass('btn-success').addClass('btn-danger').html(' PAUSE');
+            $('.btn-stop').html(' PAUSE');
         }
     }
     function stop_time()
     {	
     	var_stop = true;
         $(".waktu").html("00:00");
+        clearInterval(interval);
+    }
+    function init_start()
+    {
+        clearInterval(interval);
+        var duration = 60 * 0.1; // 5 Menit         
+        var_stop = false;
+        var_start_timer = true;
+
+    	start_time(duration)	
     }
     function start_time(duration) 
     {
-        var duration = 60 * 5; // 5 Menit         
         var timer = duration, minutes, seconds;
 
-        setInterval(function () {
+        interval = setInterval(function () {
         	if(var_stop)
 	    	{
 	    		return false;
@@ -642,7 +655,9 @@
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
             if (--timer < 0) {
-                alert('Waktu Pertandingan selesai !');
+            	var_stop = true;
+                $(".waktu").html("WAKTU HABIS");
+        		clearInterval(interval);
             }
             else
             {

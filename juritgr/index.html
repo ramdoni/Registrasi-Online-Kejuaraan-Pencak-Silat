@@ -208,7 +208,9 @@
                 // get juri
                 $.ajax({
                     url: url_api, 
-                    data : {a : 'login', id: id_wasit, password: pass},
+                    data : {a : 'login', id: id_wasit, password: pass, 
+                                'id_partai' : id_partai
+                            },
                     type: "GET",
                     dataType: "json",
                     crossDomain: true,
@@ -228,6 +230,7 @@
                             window.localStorage.setItem("golongan", golongan);
                             window.localStorage.setItem("nama", nama);
                             window.localStorage.setItem("undian", undian);
+                            window.localStorage.setItem("kontingen", obj.kontingen);
                             
                             if(kategori == 'Tunggal')
                             {

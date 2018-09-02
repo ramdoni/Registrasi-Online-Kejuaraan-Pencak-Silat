@@ -1026,9 +1026,12 @@ if("" != $param)
 			$exec = mysql_query($sql);
 
 			$row = mysql_fetch_row($exec);
+
+			$get_jadwal = mysql_query("SELECT kontingen FROM jadwal_tgr WHERE id_partai=". $_GET['id_partai']);
+			$get_jadwal = mysql_fetch_row($get_jadwal);
 			
 			if($row){
-				echo json_encode(['status' => 'success']);
+				echo json_encode(['status' => 'success', 'kontingen' => $get_jadwal[0]]);
 			}else{
 				echo json_encode(['status' => 'error']);
 			}

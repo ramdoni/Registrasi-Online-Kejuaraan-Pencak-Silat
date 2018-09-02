@@ -122,8 +122,8 @@
                         <th>14</th>
                     </tr> 
                     <tr>
-                        <th colspan="4" style="text-align: center;">JURUS GOLOK / PARANG</th>
-                        <th colspan="3" style="text-align: center;">JURUS TONGKAT</th>
+                        <th colspan="3" style="text-align: center;background: #eee;">JURUS GOLOK / PARANG</th>
+                        <th colspan="4" style="text-align: center;background: #eee;">JURUS TONGKAT</th>
                     </tr>
                     <tr>
                         <th>7</th>
@@ -135,40 +135,47 @@
                         <th>9</th>
                     </tr> 
                     <tr>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(8)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_8">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(8)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_8">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(9)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_9">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(9)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_9">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(10)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_10">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(10)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_10">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(11)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_11">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(11)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_11">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(12)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_12">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(12)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_12">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(13)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_13">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(13)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_13">
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_undo_minus_tunggal(14)"><img src="back.png" style="height: 15px;" /></span>
-                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_14">
                             <span class="btn btn-danger" style="padding-left: 20px;padding-right: 20px;" onclick="add_minus_tunggal(14)">-1</span>
+                            <br />
+                            <input type="text" style="width: 30px; height: 32px;" readonly="true" value="0" class="nilai_14">
                         </td>
                     </tr>
                     <tr>
@@ -316,7 +323,7 @@
         $(".header-golongan").html(window.localStorage.getItem('golongan'));
         $('.header-nama').html( window.localStorage.getItem('nama') );
         $('.header-undian').html( window.localStorage.getItem('undian') );
-
+        $('.header-kontingen').html( window.localStorage.getItem('kontingen') );
         $('.nama_juri').html( window.localStorage.getItem('nama_juri') );
 
         var total_nilai_merah = 0;
