@@ -23,11 +23,6 @@
 
                 <h4 style="text-align: center;">FORM NILAI</h4>
                 <h4 style="text-align: center;">KATEGORI : <label class="header-kategori"></label>, <label class="header-golongan"></label></h4>
-                <div class="col-md-6 pull-right" style="text-align: right;">
-                    <h3 style="padding:0;margin:0;">Durasi Waktu</h3><br />
-                    <h1 style="padding:0;margin:0;"><label class="waktu"></label></h1>
-                    <h1 class="btn btn-success btn-stop" onclick="stop_time()" style="margin-bottom:10px;"> STOP WAKTU</h1>
-                </div>
                 <table>
                     <tr>
                         <th>Juri </th>
@@ -299,55 +294,6 @@
         <source src="button.ogg" type="audio/ogg">
     </audio>
     <script type="text/javascript">
-
-        var stop_time = function(){
-
-            if(var_start_timer)
-            {
-                $('.btn-stop').html(' START WAKTU');
-                var_start_timer = false;
-            }
-            else
-            {
-                var_start_timer = true;
-                $('.btn-stop').html(' STOP WAKTU');
-            }
-        }
-
-        var var_start_timer = true;
-        
-        function startTimer(duration) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
-
-                if(var_start_timer == false)
-                {
-                    return false;
-                }
-
-                minutes = parseInt(timer / 60, 10)
-                seconds = parseInt(timer % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                if (--timer < 0) {
-                    alert('Waktu Penjurian anda selesai !');
-
-                    window.location.replace('index.html');
-                    fiveMinutes;  
-                }
-                else
-                {
-                    $(".waktu").html(minutes + ":" + seconds);
-                }
-            }, 1000);
-        }
-
-        window.onload = function () {
-            var fiveMinutes = 60 * 5
-            startTimer(fiveMinutes);
-        };
 
         $(".my_audio").trigger('load');
         

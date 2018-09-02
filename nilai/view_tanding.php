@@ -346,17 +346,13 @@
       <td colspan="11"><?php echo $jadwal['kelas']; ?></td>
     </tr>
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
+      <td style="text-align: center;" colspan="11">
+      	<h2 class="waktu"></h2>
+  		<br />    	
+      	<h1 class="btn btn-success" onclick="start_time()" style="margin-bottom:10px;"> START</h1>
+      	<h1 class="btn btn-warning btn-stop" onclick="resume_time()" style="margin-bottom:10px;"> PAUSE</h1>
+      	<h1 class="btn btn-danger" onclick="stop_time()" style="margin-bottom:10px;"> STOP</h1>
+      </td>
     </tr>
     <tr>
       <td colspan="2">NAMA</td>
@@ -588,7 +584,6 @@
 </div>
 </div>
 <script type="text/javascript">
-	
 	setInterval(function(){
 		$.ajax({
             url: 'http://192.168.0.100/simulasi/nilai/api.php', 
@@ -601,6 +596,61 @@
             }
         });
 	}, 1000);
+
+    var var_start_timer = true;
+    var var_stop = false;
+	var resume_time = function(){
+		if(var_stop)
+    	{
+    		return false;
+    	}
+        if(var_start_timer)
+        {
+            $('.btn-stop').removeClass('btn-danger').addClass('btn-success').html(' RESUME');
+            var_start_timer = false;
+        }
+        else
+        {
+            var_start_timer = true;
+            $('.btn-stop').removeClass('btn-success').addClass('btn-danger').html(' PAUSE');
+        }
+    }
+    function stop_time()
+    {	
+    	var_stop = true;
+        $(".waktu").html("00:00");
+    }
+    function start_time(duration) 
+    {
+        var duration = 60 * 5; // 5 Menit         
+        var timer = duration, minutes, seconds;
+
+        setInterval(function () {
+        	if(var_stop)
+	    	{
+	    		return false;
+	    	}
+
+            if(var_start_timer == false)
+            {
+                return false;
+            }
+
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (--timer < 0) {
+                alert('Waktu Pertandingan selesai !');
+            }
+            else
+            {
+                $(".waktu").html(minutes + ":" + seconds);
+            }
+        }, 1000);
+    }
 
 </script>
 </body>
